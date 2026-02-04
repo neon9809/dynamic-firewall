@@ -1,0 +1,76 @@
+# dynamic-firewall configuration file
+# 
+# Environment variables can be used with ${VAR_NAME} syntax
+# Example: api_token: "${UNIFI_API_TOKEN}"
+
+# Global settings
+global:
+  # Update interval in seconds (default: 3600 = 1 hour)
+  update_interval: 3600
+  
+  # Minimum score threshold for syncing IPs to firewall
+  # Only IPs with score >= min_score will be synced
+  min_score: 3
+  
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  log_level: INFO
+  
+  # Database path
+  db_path: /app/data/ips.db
+
+# Collectors configuration
+# Each collector fetches malicious IPs from a specific source
+collectors:
+  
+  # IPsum - Aggregated threat intelligence feed
+  # https://github.com/stamparm/ipsum
+  ipsum:
+    enabled: true
+    # Minimum score (how many blacklists the IP appears on)
+    min_score: 3
+  
+  # AbuseIPDB - Community-driven IP abuse database
+  # https://www.abuseipdb.com/
+  abuseipdb:
+    enabled: false
+    # API key (get from https://www.abuseipdb.com/account/api)
+    api_key: "${ABUSEIPDB_API_KEY}"
+    # Minimum confidence score (0-100)
+    confidence_minimum: 90
+    # Maximum number of IPs to fetch
+    limit: 10000
+  
+  # CNCERT - China National Computer Network Emergency Response Team
+  # https://www.cert.org.cn/
+  cncert:
+    enabled: false
+    # Maximum number of articles to parse
+    max_articles: 5
+
+# Syncers configuration
+# Each syncer pushes IPs to a specific router/firewall
+syncers:
+  
+  # UniFi Gateway syncer
+  # Uses UniFi Network API (https://developer.ui.com/)
+  unifi:
+    enabled: true
+    
+    # UniFi API URL (usually https://api.ui.com for cloud-based)
+    # For local controller: https://your-controller-ip:port
+    api_url: "https://api.ui.com"
+    
+    # UniFi API Token
+    # Get from: unifi.ui.com → Settings → API Keys
+    api_token: "${UNIFI_API_TOKEN}"
+    
+    # Site ID (find in UniFi Site Manager URL)
+    # Example: if URL is https://unifi.ui.com/sites/abc123/dashboard
+    # then site_id is "abc123"
+    site_id: "your_site_id"
+    
+    # Firewall group name to create/update
+    group_name: "d-firewall-blacklist"
+    
+    # Verify SSL certificate (set to false for self-signed certs)
+    verify_ssl: true

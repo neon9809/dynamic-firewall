@@ -1,0 +1,17 @@
+# Python dependencies for dynamic-firewall
+
+# HTTP requests
+requests>=2.31.0
+
+# Task scheduling
+APScheduler>=3.10.4
+
+# YAML configuration
+PyYAML>=6.0.1
+
+# HTML parsing for CNCERT collector
+beautifulsoup4>=4.12.2
+lxml>=4.9.3
+
+# SSL/TLS support
+urllib3>=2.0.7

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  dynamic-firewall:
+    image: ghcr.io/your-github-username/dynamic-firewall:latest
+    container_name: dynamic-firewall
+    restart: unless-stopped
+    
+    # Environment variables for sensitive data
+    environment:
+      # AbuseIPDB API key (optional, only if abuseipdb collector is enabled)
+      - ABUSEIPDB_API_KEY=${ABUSEIPDB_API_KEY:-}
+      
+      # UniFi API Token (required if unifi syncer is enabled)
+      - UNIFI_API_TOKEN=${UNIFI_API_TOKEN:-}
+    
+    # Mount volumes for persistent data
+    volumes:
+      # Configuration file
+      - ./config:/app/config:ro
+      
+      # Database and persistent data
+      - ./data:/app/data
+    
+    # Network mode
+    network_mode: bridge
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
