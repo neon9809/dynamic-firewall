@@ -1,6 +1,6 @@
 # dynamic-firewall
 
-[![Build Status](https://github.com/your-github-username/dynamic-firewall/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/your-github-username/dynamic-firewall/actions/workflows/docker-publish.yml)
+[![Build Status](https://github.com/neon9809/dynamic-firewall/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/neon9809/dynamic-firewall/actions/workflows/docker-publish.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 `dynamic-firewall` 是一个运行在 Docker 容器中的自动化工具，旨在通过动态更新防火墙规则来增强您的网络安全。它会定期从多个权威的恶意 IP 地址数据库获取最新的威胁情报，并将这些 IP 地址自动同步到您路由器的防火墙中，从而实现对已知恶意来源的实时网络威胁防护。
@@ -38,7 +38,7 @@
 ### 2. 下载项目
 
 ```bash
-git clone https://github.com/your-github-username/dynamic-firewall.git
+git clone https://github.com/neon9809/dynamic-firewall.git
 cd dynamic-firewall
 ```
 
@@ -162,7 +162,7 @@ docker-compose down
 
 ## 🤝 贡献
 
-欢迎各种形式的贡献！如果您有任何想法、建议或发现 Bug，请随时提交 [Issues](https://github.com/your-github-username/dynamic-firewall/issues) 或 [Pull Requests](https://github.com/your-github-username/dynamic-firewall/pulls)。
+欢迎各种形式的贡献！如果您有任何想法、建议或发现 Bug，请随时提交 [Issues](https://github.com/neon9809/dynamic-firewall/issues) 或 [Pull Requests](https://github.com/neon9809/dynamic-firewall/pulls)。
 
 ## 📜 开源许可
 

@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   dynamic-firewall:
-    image: ghcr.io/your-github-username/dynamic-firewall:latest
+    image: ghcr.io/neon9809/dynamic-firewall:latest
     container_name: dynamic-firewall
     restart: unless-stopped
     

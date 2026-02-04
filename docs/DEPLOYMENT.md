@@ -25,7 +25,7 @@
 ### 2. 下载项目
 
 ```bash
-git clone https://github.com/your-github-username/dynamic-firewall.git
+git clone https://github.com/neon9809/dynamic-firewall.git
 cd dynamic-firewall
 ```
 
@@ -107,7 +107,7 @@ docker-compose up -d
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/your-github-username/dynamic-firewall.git
+git clone https://github.com/neon9809/dynamic-firewall.git
 cd dynamic-firewall
 ```
 
@@ -366,7 +366,7 @@ docker exec -it dynamic-firewall sqlite3 /app/data/ips.db \
 如果您在部署过程中遇到问题，请：
 
 1. 查看 [常见问题](#常见问题) 部分。
-2. 查看项目的 [Issues](https://github.com/your-github-username/dynamic-firewall/issues)。
+2. 查看项目的 [Issues](https://github.com/neon9809/dynamic-firewall/issues)。
 3. 提交新的 Issue 并提供详细的日志信息。
 
 ---
